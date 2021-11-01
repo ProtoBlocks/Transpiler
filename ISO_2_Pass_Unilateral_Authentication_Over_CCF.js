@@ -15,6 +15,10 @@ const ISO_2_Pass_Unilateral_Authentication_Over_CCF = new Protocol(
       {origin: "Prover", recipients: ["Verifier"], name: "Response", function: async (Prover, Verifier) => {
         const Hash = hash(Verifier.Challenge.Nonce + Verifier.Id + Prover.Input.Secret);
         Verifier.send({"Hash": Hash});
+      }},
+      {origin: "Verifier", recipients: [], name: "Verify", function: async (Prover, Verifier) => {
+        const Hash = hash(Verifier.Challenge.Nonce + Verifier.Id + Verifier.Input.Secret);
+        return (Hash === Prover.Response.Hash);
       }}
     ]
   }
