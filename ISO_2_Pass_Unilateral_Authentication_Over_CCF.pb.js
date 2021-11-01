@@ -3,7 +3,7 @@ const { Protocol, hash, nonce } = require('protoblocks');
 protocol ISO_2_Pass_Unilateral_Authentication_Over_CCF [Prover(Secret), Verifier(Secret)] {
   step Challenge [Verifier -> Prover] {
     const Nonce = nonce();
-    Verifier.send({"Nonce": Nonce});
+    Prover.send({"Nonce": Nonce});
   }
 
   step Response [Prover -> Verifier] {
