@@ -1,0 +1,22 @@
+{
+  "name": "protoblocks-transpiler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ISO_2_Pass_Unilateral_Authentication_Over_CCF.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProtoBlocks/Transpiler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ProtoBlocks/Transpiler/issues"
+  },
+  "homepage": "https://github.com/ProtoBlocks/Transpiler#readme",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
