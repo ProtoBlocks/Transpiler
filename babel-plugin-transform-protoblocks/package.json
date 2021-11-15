@@ -1,0 +1,30 @@
+{
+  "name": "babel-plugin-transform-protoblocks",
+  "version": "7.16.0",
+  "description": "Compile Protoblocks JS to ES5",
+  "main": "./lib/index.js",
+  "dependencies": {
+    "@babel/helper-plugin-utils": "file:../babel/packages/babel-helper-plugin-utils"
+  },
+  "keywords": [
+    "babel-plugin"
+  ],
+  "peerDependencies": {
+    "@babel/core": "^7.0.0-0"
+  },
+  "devDependencies": {
+    "@babel/core": "link:../babel/packages/babel-core",
+    "@babel/helper-compilation-targets": "link:../babel/packages/babel-helper-compilation-targets",
+    "@babel/helper-plugin-test-runner": "link:../babel/packages/babel-helper-plugin-test-runner",
+    "@babel/helper-transform-fixture-test-runner": "link:../babel/packages/babel-helper-transform-fixture-test-runner",
+    "@babel/traverse": "link:../babel/packages/babel-traverse",
+    "@babel/types": "link:../babel/packages/babel-types",
+    "enhanced-resolve": "^5.8.3",
+    "jest": "^27.3.1",
+    "tsc": "^2.0.3",
+    "typescript": "^4.4.4"
+  },
+  "engines": {
+    "node": ">=6.9.0"
+  }
+}

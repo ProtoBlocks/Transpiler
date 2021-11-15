@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": ["esnext"],
+    "declaration": true,
+    "declarationMap": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "outDir": "lib"
+  },
+  "include": ["src"]
+}
