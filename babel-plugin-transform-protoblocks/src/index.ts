@@ -24,7 +24,7 @@ export default declare((api) => {
       ProtocolDeclaration(path) {
         const { node } = path;
 
-        path.replaceWith([
+        path.replaceWithMultiple([
           PROTOCOL_IMPORT,
           t.variableDeclaration("const", [
             t.variableDeclarator(
@@ -63,14 +63,14 @@ export default declare((api) => {
                         t.objectExpression([
                           t.objectProperty(
                             t.identifier("origin"),
-                            t.stringLiteral(stepNode.parties[0].id.name)
+                            t.stringLiteral(stepNode.parties[0].name)
                           ),
                           t.objectProperty(
                             t.identifier("recipients"),
                             t.arrayExpression(
                               stepNode.parties
                                 .slice(1)
-                                .map((party) => t.stringLiteral(party.id.name))
+                                .map((party) => t.stringLiteral(party.name))
                             )
                           ),
                           t.objectProperty(

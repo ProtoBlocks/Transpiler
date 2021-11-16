@@ -1,24 +1,23 @@
 {
   "name": "babel-plugin-transform-protoblocks",
-  "version": "7.16.0",
+  "version": "8.0.2",
   "description": "Compile Protoblocks JS to ES5",
   "main": "./lib/index.js",
   "dependencies": {
-    "@babel/helper-plugin-utils": "file:../babel/packages/babel-helper-plugin-utils"
+    "@babel/helper-plugin-utils": "^7.14.5"
   },
   "keywords": [
     "babel-plugin"
   ],
   "peerDependencies": {
-    "@babel/core": "^7.0.0-0"
+    "@babel/core": "npm:@protoblocks/babel-core@^8.0.2"
   },
   "devDependencies": {
-    "@babel/core": "link:../babel/packages/babel-core",
-    "@babel/helper-compilation-targets": "link:../babel/packages/babel-helper-compilation-targets",
-    "@babel/helper-plugin-test-runner": "link:../babel/packages/babel-helper-plugin-test-runner",
-    "@babel/helper-transform-fixture-test-runner": "link:../babel/packages/babel-helper-transform-fixture-test-runner",
-    "@babel/traverse": "link:../babel/packages/babel-traverse",
-    "@babel/types": "link:../babel/packages/babel-types",
+    "@babel/core": "npm:@protoblocks/babel-core@^8.0.2",
+    "@babel/helper-compilation-targets": "^7.16.0",
+    "@babel/traverse": "npm:@protoblocks/babel-traverse@^8.0.1",
+    "@babel/types": "npm:@protoblocks/babel-types@^8.0.0",
+    "babel-plugin-tester": "^10.1.0",
     "enhanced-resolve": "^5.8.3",
     "jest": "^27.3.1",
     "tsc": "^2.0.3",

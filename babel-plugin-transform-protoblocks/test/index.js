@@ -1,3 +1,13 @@
-const { default: runner } = require("@babel/helper-plugin-test-runner");
+const pluginTester = require("babel-plugin-tester").default;
+const path = require("path");
+const transform = require("../lib/index").default;
 
-runner(__dirname);
+pluginTester({
+  plugin: transform,
+  fixtures: path.join(__dirname, "fixtures"),
+  babelOptions: {
+    parserOpts: {
+      allowReturnOutsideFunction: true,
+    },
+  },
+});
