@@ -17,7 +17,7 @@ const ISO_3_Pass_Mutual_Authentication = new __PROTOBLOCKS_PROTOCOL__({
       origin: "Bob",
       recipients: ["Alice"],
       name: "Input",
-      function: async ({ Bob, Alice }) => {
+      function: async ({ bob: Bob, alice: Alice }) => {
         const Nonce = nonce();
         Prover.send({
           Nonce: Nonce,
@@ -28,7 +28,7 @@ const ISO_3_Pass_Mutual_Authentication = new __PROTOBLOCKS_PROTOCOL__({
       origin: "Alice",
       recipients: ["Bob"],
       name: "AliceProve",
-      function: async ({ Alice, Bob }) => {
+      function: async ({ alice: Alice, bob: Bob }) => {
         const Signature = sign(
           Bob.Input.Nonce + Bob.Id,
           Alice.Input.AliceSecret
@@ -44,7 +44,7 @@ const ISO_3_Pass_Mutual_Authentication = new __PROTOBLOCKS_PROTOCOL__({
       origin: "Bob",
       recipients: ["Alice"],
       name: "BobProveVerify",
-      function: async ({ Bob, Alice }) => {
+      function: async ({ bob: Bob, alice: Alice }) => {
         const Signature = sign(
           Alice.AliceProve.Nonce + Alice.Id,
           Bob.Input.BobSecret
@@ -60,7 +60,7 @@ const ISO_3_Pass_Mutual_Authentication = new __PROTOBLOCKS_PROTOCOL__({
       origin: "Verifier",
       recipients: [],
       name: "AliceVerify",
-      function: async ({ Verifier }) => {
+      function: async ({ verifier: Verifier }) => {
         const Verify = verify(
           Alice.AliceProve.Nonce + Alice.Id,
           Alice.Input.BobPublic

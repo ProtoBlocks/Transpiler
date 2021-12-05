@@ -34,7 +34,7 @@ function buildStep(stepNode) {
         [
           t.objectPattern(
             stepNode.parties.map((party: t.Identifier) =>
-              t.objectProperty(party, party, undefined, true)
+              t.objectProperty(t.identifier(party.name.toLowerCase()), party)
             )
           ),
         ],
