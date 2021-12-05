@@ -20,7 +20,7 @@ const ISO_2_Pass_Unilateral_Authentication_Over_CCF =
         origin: "Verifier",
         recipients: ["Prover"],
         name: "Challenge",
-        function: async (Verifier, Prover) => {
+        function: async ({ Verifier, Prover }) => {
           const Nonce = nonce();
           Prover.send({
             Nonce: Nonce,
@@ -31,7 +31,7 @@ const ISO_2_Pass_Unilateral_Authentication_Over_CCF =
         origin: "Prover",
         recipients: ["Verifier"],
         name: "Response",
-        function: async (Prover, Verifier) => {
+        function: async ({ Prover, Verifier }) => {
           const Hash = hash(
             Verifier.Challenge.Nonce + Verifier.Id + Prover.Input.Secret
           );
@@ -44,7 +44,7 @@ const ISO_2_Pass_Unilateral_Authentication_Over_CCF =
         origin: "Verifier",
         recipients: [],
         name: "Verify",
-        function: async (Verifier) => {
+        function: async ({ Verifier }) => {
           const Hash = hash(
             Verifier.Challenge.Nonce + Verifier.Id + Verifier.Input.Secret
           );

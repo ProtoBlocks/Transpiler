@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-transform-protoblocks",
-  "version": "8.0.2",
+  "version": "8.0.4",
   "description": "Compile Protoblocks JS to ES5",
   "main": "./lib/index.js",
   "dependencies": {
@@ -10,12 +10,12 @@
     "babel-plugin"
   ],
   "peerDependencies": {
-    "@babel/core": "npm:@protoblocks/babel-core@^8.0.2"
+    "@babel/core": "npm:@protoblocks/babel-core@^8.0.3"
   },
   "devDependencies": {
-    "@babel/core": "npm:@protoblocks/babel-core@^8.0.2",
+    "@babel/core": "npm:@protoblocks/babel-core@^8.0.3",
     "@babel/helper-compilation-targets": "^7.16.0",
-    "@babel/traverse": "npm:@protoblocks/babel-traverse@^8.0.1",
+    "@babel/traverse": "npm:@protoblocks/babel-traverse@^8.0.2",
     "@babel/types": "npm:@protoblocks/babel-types@^8.0.0",
     "babel-plugin-tester": "^10.1.0",
     "enhanced-resolve": "^5.8.3",

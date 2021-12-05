@@ -15,6 +15,36 @@ const PROTOCOL_IMPORT = t.variableDeclaration("const", [
   ),
 ]);
 
+function buildStep(stepNode) {
+  return t.objectExpression([
+    t.objectProperty(
+      t.identifier("origin"),
+      t.stringLiteral(stepNode.parties[0].name)
+    ),
+    t.objectProperty(
+      t.identifier("recipients"),
+      t.arrayExpression(
+        stepNode.parties.slice(1).map((party) => t.stringLiteral(party.name))
+      )
+    ),
+    t.objectProperty(t.identifier("name"), t.stringLiteral(stepNode.id.name)),
+    t.objectProperty(
+      t.identifier("function"),
+      t.arrowFunctionExpression(
+        [
+          t.objectPattern(
+            stepNode.parties.map((party: t.Identifier) =>
+              t.objectProperty(party, party, undefined, true)
+            )
+          ),
+        ],
+        stepNode.body,
+        true
+      )
+    ),
+  ]);
+}
+
 export default declare((api) => {
   api.assertVersion(7);
 
@@ -58,36 +88,7 @@ export default declare((api) => {
                   ),
                   t.objectProperty(
                     t.identifier("steps"),
-                    t.arrayExpression(
-                      node.body.steps.map((stepNode) =>
-                        t.objectExpression([
-                          t.objectProperty(
-                            t.identifier("origin"),
-                            t.stringLiteral(stepNode.parties[0].name)
-                          ),
-                          t.objectProperty(
-                            t.identifier("recipients"),
-                            t.arrayExpression(
-                              stepNode.parties
-                                .slice(1)
-                                .map((party) => t.stringLiteral(party.name))
-                            )
-                          ),
-                          t.objectProperty(
-                            t.identifier("name"),
-                            t.stringLiteral(stepNode.id.name)
-                          ),
-                          t.objectProperty(
-                            t.identifier("function"),
-                            t.arrowFunctionExpression(
-                              stepNode.parties,
-                              stepNode.body,
-                              true
-                            )
-                          ),
-                        ])
-                      )
-                    )
+                    t.arrayExpression(node.body.steps.map(buildStep))
                   ),
                 ]),
               ])
